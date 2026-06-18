@@ -59,10 +59,13 @@ section{margin:54px 0;}
 .plaque.self{border-color:var(--accent);}
 .tree-line{width:1px;height:18px;background:var(--line);margin:4px 0;}
 
-.maternal-list{margin:22px auto 0;max-width:480px;}
+.maternal-note{font-size:.85rem;color:var(--muted);font-style:italic;margin:8px 0 14px;}
+.maternal-list{margin:0 auto;max-width:480px;padding-left:1.4em;}
 .maternal-list li{margin-bottom:8px;}
 
-.chip-row{display:flex;flex-wrap:wrap;gap:8px;justify-content:center;margin-top:24px;}
+.gotra-section{margin-top:22px;}
+.gotra-label{font-size:.78rem;text-transform:uppercase;letter-spacing:.07em;color:var(--muted);margin-bottom:12px;}
+.chip-row{display:flex;flex-wrap:wrap;gap:8px;justify-content:center;}
 .chip{border:1px solid var(--line);background:var(--card);border-radius:20px;padding:7px 14px;font-size:.86rem;}
 .chip b{font-family:'Fraunces',serif;font-weight:600;}
 .chip span{color:var(--muted);font-size:.76rem;}
@@ -84,6 +87,11 @@ section{margin:54px 0;}
 .c-card{background:var(--card);border:1px solid var(--line);border-radius:8px;padding:14px 16px;}
 .c-card .l{font-size:.72rem;text-transform:uppercase;color:var(--muted);letter-spacing:.04em;}
 .c-card .v{margin-top:4px;font-size:.98rem;}
+
+.social-row{display:flex;gap:12px;flex-wrap:wrap;margin-top:22px;justify-content:center;}
+.social-btn{display:inline-flex;align-items:center;gap:8px;text-decoration:none;border:1px solid var(--line);border-radius:24px;padding:9px 18px;background:var(--card);color:var(--ink);font-size:.9rem;transition:border-color .2s,color .2s;}
+.social-btn:hover{border-color:var(--accent);color:var(--accent);}
+.social-btn svg{width:18px;height:18px;flex-shrink:0;}
 
 footer{text-align:center;margin-top:60px;}
 footer .sig{font-family:'Caveat',cursive;font-size:1.6rem;color:var(--accent);}
@@ -147,16 +155,24 @@ footer .sig{font-family:'Caveat',cursive;font-size:1.6rem;color:var(--accent);}
       <div class="tree-line"></div>
       <div class="plaque self"><div class="v">Abhinav Jain</div></div>
     </div>
-    <ul class="maternal-list">
-      <li>Sri Paras Mal Ji Munot</li>
-      <li>Sri Dhermendra Kumar Ji Munot (Chennai)</li>
-      <li>Jitendra Kumar Munot — Dainik Bhaskar; Sr. Super Advisor, United Insurance</li>
-    </ul>
-    <div class="chip-row">
-      <div class="chip"><b>Duggar</b> <span>Self</span></div>
-      <div class="chip"><b>Munot</b> <span>Maternal</span></div>
-      <div class="chip"><b>Bothra Mehta</b> <span>Father's Maternal</span></div>
-      <div class="chip"><b>Ved Mehta</b> <span>Mother's Maternal</span></div>
+
+    <div style="margin-top:28px;">
+      <p class="maternal-note">Maternal family (Nana–Mama side)</p>
+      <ul class="maternal-list">
+        <li><strong>Sri Paras Mal Ji Munot</strong></li>
+        <li><strong>Sri Dhermendra Kumar Ji Munot</strong> — Chennai</li>
+        <li><strong>Sri Jitendra Kumar Munot</strong> — Dainik Bhaskar; Sr. Super Advisor, United India Insurance</li>
+      </ul>
+    </div>
+
+    <div class="gotra-section">
+      <p class="gotra-label" style="text-align:center;">Gotra</p>
+      <div class="chip-row">
+        <div class="chip"><b>Duggar</b> <span>Self</span></div>
+        <div class="chip"><b>Munot</b> <span>Maternal</span></div>
+        <div class="chip"><b>Bothra</b> <span>Father's Maternal</span></div>
+        <div class="chip"><b>Ved Mehta</b> <span>Mother's Maternal</span></div>
+      </div>
     </div>
   </section>
 
@@ -177,11 +193,31 @@ footer .sig{font-family:'Caveat',cursive;font-size:1.6rem;color:var(--accent);}
   </section>
 
   <section class="reveal">
-    <h2 class="section-title">Residence & Contact</h2>
+    <h2 class="section-title">Residence &amp; Contact</h2>
     <div class="contact-grid">
       <div class="c-card"><div class="l">Residence</div><div class="v">H-163/1, Azad Nagar, Bhilwara, Rajasthan</div></div>
       <a href="tel:+919672672921"><div class="c-card"><div class="l">Paras Kumar Jain (Father)</div><div class="v">+91 96726-72921</div></div></a>
       <a href="tel:+919649477031"><div class="c-card"><div class="l">Madhu Jain (Mother)</div><div class="v">+91 96494-77031</div></div></a>
+    </div>
+
+    <div class="social-row">
+      <a class="social-btn" href="https://instagram.com/YOUR_INSTAGRAM_HANDLE" target="_blank" rel="noopener">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
+          <rect x="2" y="2" width="20" height="20" rx="5" ry="5"/>
+          <circle cx="12" cy="12" r="4"/>
+          <circle cx="17.5" cy="6.5" r=".8" fill="currentColor" stroke="none"/>
+        </svg>
+        Instagram
+      </a>
+      <a class="social-btn" href="https://linkedin.com/in/YOUR_LINKEDIN_HANDLE" target="_blank" rel="noopener">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
+          <rect x="2" y="2" width="20" height="20" rx="4"/>
+          <line x1="8" y1="11" x2="8" y2="16"/>
+          <line x1="8" y1="8" x2="8" y2="8.5"/>
+          <path d="M12 16v-5M12 11a3 3 0 0 1 6 0v5"/>
+        </svg>
+        LinkedIn
+      </a>
     </div>
   </section>
 
