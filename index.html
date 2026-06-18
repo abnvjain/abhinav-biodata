@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Abhinav Jain — Biodata</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,600;9..144,700&family=Inter:wght@400;500;600&family=Caveat:wght@500;600&family=Noto+Serif+Devanagari:wght@400&display=swap" rel="stylesheet">
+<style>
+:root{
+  --paper:#F3E7DE;
+  --card:#FBF4ED;
+  --ink:#2B1B23;
+  --muted:#7C6B66;
+  --line:#E3CFC0;
+  --accent:#9C3D54;
+  --gold:#B8923D;
+}
+*{box-sizing:border-box;}
+html{scroll-behavior:smooth;}
+body{margin:0;background:var(--paper);color:var(--ink);font-family:'Inter',sans-serif;font-size:1.08rem;line-height:1.7;}
+.controls{position:fixed;top:14px;right:14px;display:flex;gap:6px;z-index:50;}
+.controls button{background:transparent;border:1px solid var(--line);color:var(--muted);border-radius:6px;width:28px;height:28px;font-size:.72rem;cursor:pointer;font-family:'Inter',sans-serif;}
+.controls button:hover{border-color:var(--accent);color:var(--accent);}
+
+main{max-width:680px;margin:0 auto;padding:60px 24px 40px;}
+.invocation{text-align:center;font-family:'Noto Serif Devanagari',serif;color:var(--muted);font-size:.88rem;margin-bottom:46px;}
+
+.kicker{text-align:center;font-size:.74rem;letter-spacing:.18em;text-transform:uppercase;color:var(--accent);margin-bottom:10px;}
+.masthead{text-align:center;font-family:'Fraunces',serif;font-weight:600;font-size:3rem;margin:0 0 8px;letter-spacing:-.01em;}
+.subhead{text-align:center;color:var(--muted);font-size:1.05rem;max-width:480px;margin:0 auto 36px;}
+
+.polaroid{background:#fff;padding:10px 10px 28px;box-shadow:0 6px 16px rgba(43,27,35,.18);width:170px;margin:0 auto 44px;position:relative;}
+.polaroid .tape{position:absolute;top:-10px;left:50%;transform:translateX(-50%) rotate(-3deg);width:60px;height:18px;background:rgba(184,146,61,.45);}
+.polaroid .ph{width:100%;aspect-ratio:1;background:linear-gradient(160deg,var(--card),var(--line));display:flex;align-items:center;justify-content:center;font-family:'Fraunces',serif;color:var(--accent);font-size:1.6rem;}
+.polaroid .cap{text-align:center;font-family:'Caveat',cursive;font-size:1.1rem;color:var(--ink);margin-top:6px;}
+.hero-polaroid{transform:rotate(-2deg);}
+
+section{margin:54px 0;}
+.section-title{font-family:'Fraunces',serif;font-weight:600;font-size:1.3rem;margin-bottom:18px;color:var(--ink);}
+
+.reveal{opacity:0;transform:translateY(14px);transition:opacity .55s ease,transform .55s ease;}
+.reveal.visible{opacity:1;transform:none;}
+
+.lead{font-size:1.12rem;}
+.lead::first-letter{font-family:'Fraunces',serif;font-size:3.1rem;float:left;line-height:.78;padding:4px 8px 0 0;color:var(--accent);font-weight:600;}
+
+.factbox{border:1px solid var(--line);border-radius:4px;padding:16px 18px;background:var(--card);float:right;width:190px;margin:4px 0 16px 24px;}
+.factbox .f{margin-bottom:10px;}
+.factbox .l{font-size:.68rem;text-transform:uppercase;letter-spacing:.06em;color:var(--muted);}
+.factbox .v{font-family:'Fraunces',serif;font-size:1.02rem;margin-top:2px;}
+.clearfix::after{content:'';display:block;clear:both;}
+
+.tree{display:flex;flex-direction:column;align-items:center;margin-top:6px;}
+.tree-row{display:flex;gap:14px;flex-wrap:wrap;justify-content:center;}
+.plaque{background:var(--card);border:1px solid var(--line);border-radius:6px;padding:10px 16px;text-align:center;min-width:150px;}
+.plaque .v{font-size:.95rem;}
+.plaque .sub{font-size:.78rem;color:var(--muted);font-style:italic;margin-top:2px;}
+.plaque.self{border-color:var(--accent);}
+.tree-line{width:1px;height:18px;background:var(--line);margin:4px 0;}
+
+.maternal-list{margin:22px auto 0;max-width:480px;}
+.maternal-list li{margin-bottom:8px;}
+
+.chip-row{display:flex;flex-wrap:wrap;gap:8px;justify-content:center;margin-top:24px;}
+.chip{border:1px solid var(--line);background:var(--card);border-radius:20px;padding:7px 14px;font-size:.86rem;}
+.chip b{font-family:'Fraunces',serif;font-weight:600;}
+.chip span{color:var(--muted);font-size:.76rem;}
+
+.note{font-style:italic;color:var(--ink);}
+.note .music{position:relative;cursor:default;border-bottom:1px dotted var(--gold);}
+.note .music:hover{color:var(--accent);}
+
+.gallery-strip{display:flex;gap:18px;justify-content:center;flex-wrap:wrap;margin-top:10px;}
+.gallery-strip .polaroid{width:120px;margin:0;cursor:pointer;}
+.gallery-strip .polaroid:nth-child(1){transform:rotate(-3deg);}
+.gallery-strip .polaroid:nth-child(2){transform:rotate(2deg);}
+.gallery-strip .polaroid:nth-child(3){transform:rotate(-1deg);}
+.gallery-strip .polaroid:nth-child(4){transform:rotate(3deg);}
+.gallery-note{text-align:center;font-size:.85rem;color:var(--muted);margin-top:18px;}
+
+.contact-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(190px,1fr));gap:12px;margin-top:6px;}
+.contact-grid a{text-decoration:none;color:var(--ink);}
+.c-card{background:var(--card);border:1px solid var(--line);border-radius:8px;padding:14px 16px;}
+.c-card .l{font-size:.72rem;text-transform:uppercase;color:var(--muted);letter-spacing:.04em;}
+.c-card .v{margin-top:4px;font-size:.98rem;}
+
+footer{text-align:center;margin-top:60px;}
+footer .sig{font-family:'Caveat',cursive;font-size:1.6rem;color:var(--accent);}
+
+.lightbox{position:fixed;inset:0;background:rgba(43,27,35,.85);display:none;align-items:center;justify-content:center;z-index:100;}
+.lightbox.open{display:flex;}
+.lightbox .polaroid{width:240px;margin:0;}
+.lightbox .close{position:absolute;top:24px;right:28px;color:#fff;font-size:1.6rem;cursor:pointer;}
+
+@media(prefers-reduced-motion:reduce){.reveal{transition:none;}}
+@media(max-width:480px){
+  .masthead{font-size:2.2rem;}
+  .factbox{float:none;width:100%;margin:16px 0;}
+}
+</style>
+</head>
+<body>
+<div class="controls">
+  <button onclick="adjustFont(-1)" title="Smaller text">A-</button>
+  <button onclick="adjustFont(1)" title="Larger text">A+</button>
+</div>
+
+<main>
+  <p class="invocation">श्री नाकोड़ा पार्श्व-भैरवाय नमः</p>
+
+  <p class="kicker">Getting to know</p>
+  <h1 class="masthead">Abhinav Jain</h1>
+  <p class="subhead">Business Analyst by profession, songwriter at heart — raised in Rajasthan, settled in Bengaluru.</p>
+
+  <div class="polaroid hero-polaroid">
+    <div class="tape"></div>
+    <div class="ph">AJ</div>
+    <div class="cap">Abhinav</div>
+  </div>
+
+  <section class="reveal">
+    <div class="clearfix">
+      <div class="factbox">
+        <div class="f"><div class="l">Born</div><div class="v">29 Nov 2002</div></div>
+        <div class="f"><div class="l">Height</div><div class="v">5'10"</div></div>
+        <div class="f"><div class="l">Complexion</div><div class="v">Fair</div></div>
+        <div class="f"><div class="l">Qualification</div><div class="v">B.Tech.</div></div>
+      </div>
+      <p class="lead">Abhinav grew up in Bhilwara, Rajasthan, born at 3:20 AM in Gulabpura, Bijaynagar. He went on to complete his B.Tech and now works as a Business Analyst at Bewakoof Brands Pvt. Ltd. in Bengaluru — a long way from home, though Rajasthan stays close to heart.</p>
+      <p>Those who know him well will tell you he's just as comfortable with a spreadsheet as he is with a melody — a balance he's quietly proud of.</p>
+    </div>
+  </section>
+
+  <section class="reveal">
+    <h2 class="section-title">Family</h2>
+    <div class="tree">
+      <div class="tree-row">
+        <div class="plaque"><div class="v">Late Sri Manohar Singh Ji Duggar</div><div class="sub">Grandfather</div></div>
+        <div class="plaque"><div class="v">Late Smt. Shanta Devi Duggar</div><div class="sub">Grandmother</div></div>
+      </div>
+      <div class="tree-line"></div>
+      <div class="tree-row">
+        <div class="plaque"><div class="v">Sri Paras Kumar Jain</div><div class="sub">Father · Self-Employed</div></div>
+        <div class="plaque"><div class="v">Smt. Madhu Jain</div><div class="sub">Mother · Govt. Teacher</div></div>
+      </div>
+      <div class="tree-line"></div>
+      <div class="plaque self"><div class="v">Abhinav Jain</div></div>
+    </div>
+    <ul class="maternal-list">
+      <li>Sri Paras Mal Ji Munot</li>
+      <li>Sri Dhermendra Kumar Ji Munot (Chennai)</li>
+      <li>Jitendra Kumar Munot — Dainik Bhaskar; Sr. Super Advisor, United Insurance</li>
+    </ul>
+    <div class="chip-row">
+      <div class="chip"><b>Duggar</b> <span>Self</span></div>
+      <div class="chip"><b>Munot</b> <span>Maternal</span></div>
+      <div class="chip"><b>Bothra Mehta</b> <span>Father's Maternal</span></div>
+      <div class="chip"><b>Ved Mehta</b> <span>Mother's Maternal</span></div>
+    </div>
+  </section>
+
+  <section class="reveal">
+    <h2 class="section-title">Outside of Work</h2>
+    <p class="note">He reads widely, travels whenever the chance comes up, keeps fit, and — quietly — writes <span class="music">songs</span> no one's heard yet.</p>
+  </section>
+
+  <section class="reveal">
+    <h2 class="section-title">A Few Photographs</h2>
+    <div class="gallery-strip">
+      <div class="polaroid" onclick="openLightbox()"><div class="ph">1</div><div class="cap">soon</div></div>
+      <div class="polaroid" onclick="openLightbox()"><div class="ph">2</div><div class="cap">soon</div></div>
+      <div class="polaroid" onclick="openLightbox()"><div class="ph">3</div><div class="cap">soon</div></div>
+      <div class="polaroid" onclick="openLightbox()"><div class="ph">4</div><div class="cap">soon</div></div>
+    </div>
+    <p class="gallery-note">Photos to be added — tap a frame to preview</p>
+  </section>
+
+  <section class="reveal">
+    <h2 class="section-title">Residence & Contact</h2>
+    <div class="contact-grid">
+      <div class="c-card"><div class="l">Residence</div><div class="v">H-163/1, Azad Nagar, Bhilwara, Rajasthan</div></div>
+      <a href="tel:+919672672921"><div class="c-card"><div class="l">Paras Kumar Jain (Father)</div><div class="v">+91 96726-72921</div></div></a>
+      <a href="tel:+919649477031"><div class="c-card"><div class="l">Madhu Jain (Mother)</div><div class="v">+91 96494-77031</div></div></a>
+    </div>
+  </section>
+
+  <footer>
+    <div class="sig">With warm regards, Abhinav</div>
+  </footer>
+</main>
+
+<div class="lightbox" id="lightbox" onclick="closeLightbox()">
+  <span class="close">&times;</span>
+  <div class="polaroid"><div class="ph">AJ</div><div class="cap">Abhinav</div></div>
+</div>
+
+<script>
+function adjustFont(d){
+  const cur=parseFloat(getComputedStyle(document.body).fontSize);
+  const next=Math.max(16,Math.min(22,cur+d*1.4));
+  document.body.style.fontSize=next+'px';
+}
+function openLightbox(){document.getElementById('lightbox').classList.add('open');}
+function closeLightbox(){document.getElementById('lightbox').classList.remove('open');}
+const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting)e.target.classList.add('visible');}),{threshold:.12});
+document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
+</script>
+</body>
+</html>
