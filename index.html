@@ -5,242 +5,892 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Abhinav Jain — Biodata</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,600;9..144,700&family=Inter:wght@400;500;600&family=Caveat:wght@500;600&family=Noto+Serif+Devanagari:wght@400&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Lato:wght@300;400;700&family=Caveat:wght@500;600&family=Noto+Serif+Devanagari:wght@400;600&display=swap" rel="stylesheet">
 <style>
-:root{
-  --paper:#F3E7DE;
-  --card:#FBF4ED;
-  --ink:#2B1B23;
-  --muted:#7C6B66;
-  --line:#E3CFC0;
-  --accent:#9C3D54;
-  --gold:#B8923D;
+:root {
+  --saffron: #E8871A;
+  --deep-red: #8B1A1A;
+  --maroon: #6B0F0F;
+  --gold: #C9942A;
+  --gold-light: #F0D080;
+  --cream: #FDF6E3;
+  --warm-white: #FFFBF2;
+  --card-bg: #FEFAF0;
+  --ink: #2A1A0A;
+  --muted: #7A5C3A;
+  --border: #D4A843;
+  --border-light: #EDD98A;
+  --green: #2E6B3E;
 }
-*{box-sizing:border-box;}
-html{scroll-behavior:smooth;}
-body{margin:0;background:var(--paper);color:var(--ink);font-family:'Inter',sans-serif;font-size:1.08rem;line-height:1.7;}
-.controls{position:fixed;top:14px;right:14px;display:flex;gap:6px;z-index:50;}
-.controls button{background:transparent;border:1px solid var(--line);color:var(--muted);border-radius:6px;width:28px;height:28px;font-size:.72rem;cursor:pointer;font-family:'Inter',sans-serif;}
-.controls button:hover{border-color:var(--accent);color:var(--accent);}
 
-main{max-width:680px;margin:0 auto;padding:60px 24px 40px;}
-.invocation{text-align:center;font-family:'Noto Serif Devanagari',serif;color:var(--muted);font-size:.88rem;margin-bottom:46px;}
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
 
-.kicker{text-align:center;font-size:.74rem;letter-spacing:.18em;text-transform:uppercase;color:var(--accent);margin-bottom:10px;}
-.masthead{text-align:center;font-family:'Fraunces',serif;font-weight:600;font-size:3rem;margin:0 0 8px;letter-spacing:-.01em;}
-.subhead{text-align:center;color:var(--muted);font-size:1.05rem;max-width:480px;margin:0 auto 36px;}
+body {
+  background: var(--cream);
+  color: var(--ink);
+  font-family: 'Lato', sans-serif;
+  font-size: 1rem;
+  line-height: 1.75;
+}
 
-.polaroid{background:#fff;padding:10px 10px 28px;box-shadow:0 6px 16px rgba(43,27,35,.18);width:170px;margin:0 auto 44px;position:relative;}
-.polaroid .tape{position:absolute;top:-10px;left:50%;transform:translateX(-50%) rotate(-3deg);width:60px;height:18px;background:rgba(184,146,61,.45);}
-.polaroid .ph{width:100%;aspect-ratio:1;background:linear-gradient(160deg,var(--card),var(--line));display:flex;align-items:center;justify-content:center;font-family:'Fraunces',serif;color:var(--accent);font-size:1.6rem;}
-.polaroid .cap{text-align:center;font-family:'Caveat',cursive;font-size:1.1rem;color:var(--ink);margin-top:6px;}
-.hero-polaroid{transform:rotate(-2deg);}
+/* ── BORDER FRAME ── */
+.page-frame {
+  min-height: 100vh;
+  padding: 18px;
+  background:
+    repeating-linear-gradient(45deg, transparent, transparent 6px, rgba(200,148,42,0.07) 6px, rgba(200,148,42,0.07) 7px);
+}
 
-section{margin:54px 0;}
-.section-title{font-family:'Fraunces',serif;font-weight:600;font-size:1.3rem;margin-bottom:18px;color:var(--ink);}
+.inner-frame {
+  border: 2px solid var(--gold);
+  box-shadow: inset 0 0 0 6px var(--cream), inset 0 0 0 8px var(--gold-light);
+  max-width: 780px;
+  margin: 0 auto;
+  background: var(--warm-white);
+  position: relative;
+}
 
-.reveal{opacity:0;transform:translateY(14px);transition:opacity .55s ease,transform .55s ease;}
-.reveal.visible{opacity:1;transform:none;}
+/* corner ornaments */
+.inner-frame::before, .inner-frame::after {
+  content: '✦';
+  position: absolute;
+  font-size: 1.2rem;
+  color: var(--gold);
+  top: -2px; left: -2px;
+}
+.inner-frame::after { top: auto; bottom: -2px; right: -2px; left: auto; }
+.corner-tr, .corner-bl {
+  position: absolute;
+  font-size: 1.2rem;
+  color: var(--gold);
+}
+.corner-tr { top: -2px; right: -2px; }
+.corner-bl { bottom: -2px; left: -2px; }
 
-.lead{font-size:1.12rem;}
-.lead::first-letter{font-family:'Fraunces',serif;font-size:3.1rem;float:left;line-height:.78;padding:4px 8px 0 0;color:var(--accent);font-weight:600;}
+/* ── PRINT / SHARE ── */
+#print-btn, #share-btn {
+  position: fixed;
+  right: 16px;
+  border: none;
+  border-radius: 50%;
+  width: 44px;
+  height: 44px;
+  cursor: pointer;
+  font-size: 1.1rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 3px 10px rgba(0,0,0,0.18);
+  transition: transform .2s;
+  z-index: 100;
+}
+#print-btn { bottom: 72px; background: var(--deep-red); color: #fff; }
+#share-btn { bottom: 18px; background: var(--gold); color: #fff; }
+#print-btn:hover, #share-btn:hover { transform: scale(1.08); }
 
-.factbox{border:1px solid var(--line);border-radius:4px;padding:16px 18px;background:var(--card);float:right;width:190px;margin:4px 0 16px 24px;}
-.factbox .f{margin-bottom:10px;}
-.factbox .l{font-size:.68rem;text-transform:uppercase;letter-spacing:.06em;color:var(--muted);}
-.factbox .v{font-family:'Fraunces',serif;font-size:1.02rem;margin-top:2px;}
-.clearfix::after{content:'';display:block;clear:both;}
+/* ── HEADER ── */
+.header {
+  background: linear-gradient(180deg, var(--deep-red) 0%, var(--maroon) 100%);
+  padding: 0 0 24px;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+.header::after {
+  content: '';
+  display: block;
+  height: 18px;
+  background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='40' height='18'%3E%3Cpath d='M0 0 Q10 18 20 0 Q30 18 40 0' fill='none' stroke='%23C9942A' stroke-width='2'/%3E%3C/svg%3E") repeat-x bottom;
+}
 
-.tree{display:flex;flex-direction:column;align-items:center;margin-top:6px;}
-.tree-row{display:flex;gap:14px;flex-wrap:wrap;justify-content:center;}
-.plaque{background:var(--card);border:1px solid var(--line);border-radius:6px;padding:10px 16px;text-align:center;min-width:150px;}
-.plaque .v{font-size:.95rem;}
-.plaque .sub{font-size:.78rem;color:var(--muted);font-style:italic;margin-top:2px;}
-.plaque.self{border-color:var(--accent);}
-.tree-line{width:1px;height:18px;background:var(--line);margin:4px 0;}
+.invocation {
+  font-family: 'Noto Serif Devanagari', serif;
+  color: var(--gold-light);
+  font-size: .95rem;
+  padding: 18px 16px 10px;
+  letter-spacing: .05em;
+}
 
-.maternal-note{font-size:.85rem;color:var(--muted);font-style:italic;margin:8px 0 14px;}
-.maternal-list{margin:0 auto;max-width:480px;padding-left:1.4em;}
-.maternal-list li{margin-bottom:8px;}
+.divider-om {
+  color: var(--saffron);
+  font-size: 1.5rem;
+  margin: 4px 0 12px;
+  opacity: .85;
+}
 
-.gotra-section{margin-top:22px;}
-.gotra-label{font-size:.78rem;text-transform:uppercase;letter-spacing:.07em;color:var(--muted);margin-bottom:12px;}
-.chip-row{display:flex;flex-wrap:wrap;gap:8px;justify-content:center;}
-.chip{border:1px solid var(--line);background:var(--card);border-radius:20px;padding:7px 14px;font-size:.86rem;}
-.chip b{font-family:'Fraunces',serif;font-weight:600;}
-.chip span{color:var(--muted);font-size:.76rem;}
+/* ── PHOTO + NAME ── */
+.hero {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 14px;
+  padding: 10px 24px 20px;
+}
 
-.note{font-style:italic;color:var(--ink);}
-.note .music{position:relative;cursor:default;border-bottom:1px dotted var(--gold);}
-.note .music:hover{color:var(--accent);}
+.photo-ring {
+  width: 140px;
+  height: 140px;
+  border-radius: 50%;
+  border: 4px solid var(--gold);
+  box-shadow: 0 0 0 3px var(--saffron), 0 6px 20px rgba(0,0,0,0.4);
+  overflow: hidden;
+  background: var(--maroon);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  position: relative;
+  transition: box-shadow .3s;
+}
+.photo-ring:hover { box-shadow: 0 0 0 3px var(--gold-light), 0 8px 24px rgba(0,0,0,0.5); }
+.photo-ring img { width: 100%; height: 100%; object-fit: cover; display: none; }
+.photo-ring .initials {
+  font-family: 'Playfair Display', serif;
+  font-size: 2.8rem;
+  color: var(--gold-light);
+  font-weight: 700;
+  pointer-events: none;
+}
+.photo-ring .upload-hint {
+  position: absolute;
+  bottom: 0; left: 0; right: 0;
+  background: rgba(0,0,0,0.55);
+  color: #fff;
+  font-size: .65rem;
+  text-align: center;
+  padding: 4px;
+  letter-spacing: .05em;
+  opacity: 0;
+  transition: opacity .2s;
+}
+.photo-ring:hover .upload-hint { opacity: 1; }
+#photo-input { display: none; }
 
-.gallery-strip{display:flex;gap:18px;justify-content:center;flex-wrap:wrap;margin-top:10px;}
-.gallery-strip .polaroid{width:120px;margin:0;cursor:pointer;}
-.gallery-strip .polaroid:nth-child(1){transform:rotate(-3deg);}
-.gallery-strip .polaroid:nth-child(2){transform:rotate(2deg);}
-.gallery-strip .polaroid:nth-child(3){transform:rotate(-1deg);}
-.gallery-strip .polaroid:nth-child(4){transform:rotate(3deg);}
-.gallery-note{text-align:center;font-size:.85rem;color:var(--muted);margin-top:18px;}
+.hero-name {
+  font-family: 'Playfair Display', serif;
+  font-size: 2.6rem;
+  font-weight: 700;
+  color: var(--gold-light);
+  letter-spacing: .02em;
+  text-shadow: 0 2px 8px rgba(0,0,0,0.4);
+}
+.hero-sub {
+  font-family: 'Lato', sans-serif;
+  color: var(--border-light);
+  font-size: .95rem;
+  font-weight: 300;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+}
 
-.contact-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(190px,1fr));gap:12px;margin-top:6px;}
-.contact-grid a{text-decoration:none;color:var(--ink);}
-.c-card{background:var(--card);border:1px solid var(--line);border-radius:8px;padding:14px 16px;}
-.c-card .l{font-size:.72rem;text-transform:uppercase;color:var(--muted);letter-spacing:.04em;}
-.c-card .v{margin-top:4px;font-size:.98rem;}
+/* ── QUICK FACTS BAND ── */
+.facts-band {
+  background: var(--saffron);
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 0;
+}
+.fact-item {
+  flex: 1;
+  min-width: 120px;
+  text-align: center;
+  padding: 12px 10px;
+  border-right: 1px solid rgba(255,255,255,0.3);
+}
+.fact-item:last-child { border-right: none; }
+.fact-label {
+  font-size: .65rem;
+  text-transform: uppercase;
+  letter-spacing: .1em;
+  color: rgba(255,255,255,0.75);
+  font-weight: 700;
+}
+.fact-value {
+  font-family: 'Playfair Display', serif;
+  font-size: 1rem;
+  color: #fff;
+  font-weight: 600;
+  margin-top: 2px;
+}
 
-.social-row{display:flex;gap:12px;flex-wrap:wrap;margin-top:22px;justify-content:center;}
-.social-btn{display:inline-flex;align-items:center;gap:8px;text-decoration:none;border:1px solid var(--line);border-radius:24px;padding:9px 18px;background:var(--card);color:var(--ink);font-size:.9rem;transition:border-color .2s,color .2s;}
-.social-btn:hover{border-color:var(--accent);color:var(--accent);}
-.social-btn svg{width:18px;height:18px;flex-shrink:0;}
+/* ── MAIN CONTENT ── */
+.content { padding: 36px 36px 28px; }
 
-footer{text-align:center;margin-top:60px;}
-footer .sig{font-family:'Caveat',cursive;font-size:1.6rem;color:var(--accent);}
+/* ── SECTION ── */
+.section { margin-bottom: 40px; }
 
-.lightbox{position:fixed;inset:0;background:rgba(43,27,35,.85);display:none;align-items:center;justify-content:center;z-index:100;}
-.lightbox.open{display:flex;}
-.lightbox .polaroid{width:240px;margin:0;}
-.lightbox .close{position:absolute;top:24px;right:28px;color:#fff;font-size:1.6rem;cursor:pointer;}
+.section-head {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 18px;
+}
+.section-icon {
+  width: 36px;
+  height: 36px;
+  background: var(--deep-red);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1rem;
+  flex-shrink: 0;
+  box-shadow: 0 2px 8px rgba(139,26,26,0.3);
+}
+.section-title {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: var(--deep-red);
+  letter-spacing: .01em;
+}
+.section-rule {
+  flex: 1;
+  height: 1px;
+  background: linear-gradient(90deg, var(--gold), transparent);
+}
 
-@media(prefers-reduced-motion:reduce){.reveal{transition:none;}}
-@media(max-width:480px){
-  .masthead{font-size:2.2rem;}
-  .factbox{float:none;width:100%;margin:16px 0;}
+/* ── ABOUT ── */
+.about-text {
+  font-size: 1.02rem;
+  color: var(--ink);
+  line-height: 1.85;
+}
+.about-text::first-letter {
+  font-family: 'Playfair Display', serif;
+  font-size: 3.2rem;
+  font-weight: 700;
+  color: var(--deep-red);
+  float: left;
+  line-height: .75;
+  padding: 6px 10px 0 0;
+}
+
+/* ── FAMILY TREE ── */
+.tree { display: flex; flex-direction: column; align-items: center; gap: 6px; }
+.tree-row { display: flex; gap: 12px; flex-wrap: wrap; justify-content: center; }
+.plaque {
+  background: var(--card-bg);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 10px 16px;
+  text-align: center;
+  min-width: 148px;
+  position: relative;
+}
+.plaque::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 16px; right: 16px;
+  height: 3px;
+  background: linear-gradient(90deg, var(--gold), var(--saffron), var(--gold));
+  border-radius: 2px 2px 0 0;
+}
+.plaque-name { font-family: 'Playfair Display', serif; font-size: .92rem; color: var(--ink); }
+.plaque-role { font-size: .72rem; color: var(--muted); margin-top: 2px; font-style: italic; }
+.plaque.self-plaque { border-color: var(--saffron); background: #FFF5E6; }
+.plaque.self-plaque::before { background: var(--saffron); }
+
+.tree-connector {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.tree-line { width: 1px; height: 16px; background: var(--gold); }
+.tree-dot { width: 7px; height: 7px; border-radius: 50%; background: var(--saffron); margin: -1px; }
+
+/* ── MATERNAL ── */
+.maternal-heading {
+  font-size: .75rem;
+  text-transform: uppercase;
+  letter-spacing: .08em;
+  color: var(--muted);
+  margin: 22px 0 10px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.maternal-heading::after {
+  content: '';
+  flex: 1;
+  height: 1px;
+  background: var(--border-light);
+}
+
+.maternal-list { list-style: none; display: flex; flex-direction: column; gap: 8px; }
+.maternal-list li {
+  background: var(--card-bg);
+  border-left: 3px solid var(--saffron);
+  border-radius: 0 6px 6px 0;
+  padding: 8px 14px;
+  font-size: .95rem;
+}
+.maternal-list li span { color: var(--muted); font-size: .82rem; display: block; margin-top: 1px; }
+
+/* ── GOTRA CHIPS ── */
+.gotra-heading {
+  font-size: .75rem;
+  text-transform: uppercase;
+  letter-spacing: .08em;
+  color: var(--muted);
+  margin: 22px 0 10px;
+}
+.chip-row { display: flex; flex-wrap: wrap; gap: 10px; }
+.chip {
+  background: linear-gradient(135deg, #FFF5E0, #FFF0D0);
+  border: 1px solid var(--gold);
+  border-radius: 24px;
+  padding: 7px 16px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.chip-gotra { font-family: 'Playfair Display', serif; font-size: .95rem; font-weight: 600; color: var(--deep-red); }
+.chip-rel { font-size: .72rem; color: var(--muted); padding-left: 8px; border-left: 1px solid var(--border-light); }
+
+/* ── HOBBIES ── */
+.hobby-grid { display: flex; flex-wrap: wrap; gap: 10px; }
+.hobby-card {
+  background: var(--card-bg);
+  border: 1px solid var(--border-light);
+  border-radius: 10px;
+  padding: 12px 16px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex: 1;
+  min-width: 130px;
+}
+.hobby-icon { font-size: 1.4rem; }
+.hobby-label { font-size: .9rem; color: var(--ink); font-weight: 400; }
+
+/* ── GALLERY ── */
+.gallery-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 14px;
+}
+.gallery-frame {
+  background: #fff;
+  padding: 8px 8px 24px;
+  box-shadow: 2px 3px 10px rgba(0,0,0,0.15);
+  cursor: pointer;
+  position: relative;
+  transition: transform .25s, box-shadow .25s;
+}
+.gallery-frame:nth-child(1) { transform: rotate(-2.5deg); }
+.gallery-frame:nth-child(2) { transform: rotate(1.8deg); }
+.gallery-frame:nth-child(3) { transform: rotate(-1.2deg); }
+.gallery-frame:nth-child(4) { transform: rotate(2.2deg); }
+.gallery-frame:hover { transform: rotate(0) scale(1.05) !important; box-shadow: 4px 8px 20px rgba(0,0,0,0.25); z-index: 2; }
+
+.gallery-ph {
+  width: 100%;
+  aspect-ratio: 1;
+  background: linear-gradient(160deg, #F5ECD5, #E8D5A8);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  color: var(--muted);
+  font-size: .7rem;
+  text-align: center;
+  overflow: hidden;
+}
+.gallery-ph img { width: 100%; height: 100%; object-fit: cover; display: none; }
+.gallery-ph .ph-icon { font-size: 1.6rem; opacity: .5; }
+.gallery-caption {
+  text-align: center;
+  font-family: 'Caveat', cursive;
+  font-size: .95rem;
+  color: var(--muted);
+  margin-top: 6px;
+}
+.tape {
+  position: absolute;
+  top: -8px;
+  left: 50%;
+  transform: translateX(-50%) rotate(-3deg);
+  width: 52px;
+  height: 14px;
+  background: rgba(200,148,42,0.4);
+  border-radius: 2px;
+}
+.gallery-note {
+  text-align: center;
+  font-size: .82rem;
+  color: var(--muted);
+  margin-top: 16px;
+  font-style: italic;
+}
+
+/* ── CONTACT ── */
+.contact-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px,1fr)); gap: 12px; }
+.contact-card {
+  background: var(--card-bg);
+  border: 1px solid var(--border-light);
+  border-radius: 10px;
+  padding: 14px 16px;
+  text-decoration: none;
+  color: inherit;
+  display: block;
+  transition: border-color .2s, box-shadow .2s;
+}
+.contact-card:hover { border-color: var(--gold); box-shadow: 0 3px 12px rgba(201,148,42,0.2); }
+.contact-card .c-icon { font-size: 1.3rem; margin-bottom: 6px; }
+.contact-card .c-label { font-size: .68rem; text-transform: uppercase; letter-spacing: .07em; color: var(--muted); }
+.contact-card .c-value { font-size: .95rem; color: var(--ink); margin-top: 3px; }
+
+/* ── SOCIAL ── */
+.social-row { display: flex; gap: 12px; flex-wrap: wrap; margin-top: 14px; }
+.social-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  text-decoration: none;
+  border: 1px solid var(--border);
+  border-radius: 24px;
+  padding: 9px 20px;
+  background: linear-gradient(135deg, #FFF5E0, #FFF0D0);
+  color: var(--deep-red);
+  font-size: .88rem;
+  font-weight: 700;
+  transition: background .2s, box-shadow .2s;
+}
+.social-btn:hover {
+  background: linear-gradient(135deg, var(--gold-light), var(--saffron));
+  box-shadow: 0 3px 12px rgba(200,148,42,0.35);
+  color: var(--maroon);
+}
+.social-btn svg { width: 16px; height: 16px; flex-shrink: 0; }
+
+/* ── FOOTER ── */
+.footer {
+  background: linear-gradient(180deg, var(--maroon), var(--deep-red));
+  text-align: center;
+  padding: 28px 24px 24px;
+}
+.footer-sig {
+  font-family: 'Caveat', cursive;
+  font-size: 2rem;
+  color: var(--gold-light);
+}
+.footer-bottom {
+  font-size: .72rem;
+  color: rgba(255,255,255,0.45);
+  margin-top: 10px;
+  font-family: 'Noto Serif Devanagari', serif;
+  letter-spacing: .05em;
+}
+
+/* ── LIGHTBOX ── */
+.lightbox {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: rgba(20,5,0,.88);
+  z-index: 200;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  gap: 16px;
+}
+.lightbox.open { display: flex; }
+.lightbox-frame {
+  background: #fff;
+  padding: 10px 10px 36px;
+  max-width: 320px;
+  width: 90%;
+  box-shadow: 0 20px 60px rgba(0,0,0,.6);
+}
+.lightbox-frame img { width: 100%; aspect-ratio: 1; object-fit: cover; }
+.lightbox-frame .ph-big {
+  width: 100%;
+  aspect-ratio: 1;
+  background: #EEE;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #aaa;
+  font-size: 1rem;
+}
+.lightbox-cap { text-align: center; font-family: 'Caveat', cursive; font-size: 1.2rem; color: #555; margin-top: 8px; }
+.lightbox-close {
+  color: #fff;
+  font-size: 2rem;
+  cursor: pointer;
+  line-height: 1;
+  opacity: .7;
+  background: none;
+  border: none;
+}
+.lightbox-close:hover { opacity: 1; }
+
+/* ── REVEAL ANIMATION ── */
+.reveal {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity .6s ease, transform .6s ease;
+}
+.reveal.visible { opacity: 1; transform: none; }
+
+/* ── SHARE TOAST ── */
+.toast {
+  position: fixed;
+  bottom: 80px;
+  left: 50%;
+  transform: translateX(-50%) translateY(20px);
+  background: var(--ink);
+  color: #fff;
+  padding: 10px 22px;
+  border-radius: 24px;
+  font-size: .85rem;
+  opacity: 0;
+  transition: all .3s;
+  pointer-events: none;
+  z-index: 300;
+}
+.toast.show { opacity: 1; transform: translateX(-50%) translateY(0); }
+
+/* ── PRINT ── */
+@media print {
+  .page-frame { background: none; padding: 0; }
+  .inner-frame { border: 1px solid #ccc; box-shadow: none; max-width: 100%; }
+  #print-btn, #share-btn, .toast { display: none !important; }
+  .reveal { opacity: 1 !important; transform: none !important; }
+  body { font-size: .9rem; }
+  .gallery-frame:nth-child(n) { transform: none; }
+  .header { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+  .facts-band { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+  .footer { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+}
+
+@media (max-width: 560px) {
+  .content { padding: 24px 18px 20px; }
+  .hero-name { font-size: 2rem; }
+  .gallery-grid { grid-template-columns: repeat(2, 1fr); }
+  .facts-band { gap: 0; }
+  .fact-item { min-width: 50%; border-bottom: 1px solid rgba(255,255,255,0.2); }
 }
 </style>
 </head>
 <body>
-<div class="controls">
-  <button onclick="adjustFont(-1)" title="Smaller text">A-</button>
-  <button onclick="adjustFont(1)" title="Larger text">A+</button>
+
+<button id="print-btn" onclick="window.print()" title="Print / Save as PDF">🖨️</button>
+<button id="share-btn" onclick="sharePage()" title="Copy link">🔗</button>
+<div class="toast" id="toast">Link copied to clipboard!</div>
+
+<div class="page-frame">
+  <div class="inner-frame">
+    <span class="corner-tr">✦</span>
+    <span class="corner-bl">✦</span>
+
+    <!-- HEADER -->
+    <div class="header">
+      <p class="invocation">॥ श्री नाकोड़ा पार्श्व-भैरवाय नमः ॥</p>
+      <div class="divider-om">᳀ ॐ ᳀</div>
+      <div class="hero">
+        <div class="photo-ring" onclick="document.getElementById('photo-input').click()" title="Tap to add photo">
+          <span class="initials">AJ</span>
+          <img id="hero-img" src="" alt="Abhinav Jain">
+          <span class="upload-hint">TAP TO ADD PHOTO</span>
+        </div>
+        <input type="file" id="photo-input" accept="image/*" onchange="loadHeroPhoto(event)">
+        <h1 class="hero-name">Abhinav Jain</h1>
+        <p class="hero-sub">Business Analyst · Songwriter · Bhilwara–Bengaluru</p>
+      </div>
+    </div>
+
+    <!-- QUICK FACTS -->
+    <div class="facts-band">
+      <div class="fact-item"><div class="fact-label">Date of Birth</div><div class="fact-value">29 Nov 2002</div></div>
+      <div class="fact-item"><div class="fact-label">Time of Birth</div><div class="fact-value">3:20 AM</div></div>
+      <div class="fact-item"><div class="fact-label">Height</div><div class="fact-value">5′ 10″</div></div>
+      <div class="fact-item"><div class="fact-label">Complexion</div><div class="fact-value">Fair</div></div>
+      <div class="fact-item"><div class="fact-label">Qualification</div><div class="fact-value">B.Tech.</div></div>
+    </div>
+
+    <!-- MAIN -->
+    <div class="content">
+
+      <!-- ABOUT -->
+      <div class="section reveal">
+        <div class="section-head">
+          <div class="section-icon">🪔</div>
+          <h2 class="section-title">About</h2>
+          <div class="section-rule"></div>
+        </div>
+        <p class="about-text">
+          Abhinav grew up in Bhilwara, Rajasthan, born at 3:20 AM in Gulabpura, Bijaynagar. He completed his B.Tech and now works as a Business Analyst at Bewakoof Brands Pvt. Ltd. in Bengaluru — a long way from home, though Rajasthan stays very close to heart. Those who know him well will tell you he's just as comfortable with a spreadsheet as he is with a melody, a balance he's quietly proud of.
+        </p>
+      </div>
+
+      <!-- FAMILY -->
+      <div class="section reveal">
+        <div class="section-head">
+          <div class="section-icon">🏠</div>
+          <h2 class="section-title">Family</h2>
+          <div class="section-rule"></div>
+        </div>
+
+        <div class="tree">
+          <div class="tree-row">
+            <div class="plaque">
+              <div class="plaque-name">Late Sri Manohar Singh Ji Duggar</div>
+              <div class="plaque-role">Paternal Grandfather</div>
+            </div>
+            <div class="plaque">
+              <div class="plaque-name">Late Smt. Shanta Devi Duggar</div>
+              <div class="plaque-role">Paternal Grandmother</div>
+            </div>
+          </div>
+          <div class="tree-connector"><div class="tree-line"></div><div class="tree-dot"></div><div class="tree-line"></div></div>
+          <div class="tree-row">
+            <div class="plaque">
+              <div class="plaque-name">Sri Paras Kumar Jain</div>
+              <div class="plaque-role">Father · Self-Employed</div>
+            </div>
+            <div class="plaque">
+              <div class="plaque-name">Smt. Madhu Jain</div>
+              <div class="plaque-role">Mother · Govt. Teacher</div>
+            </div>
+          </div>
+          <div class="tree-connector"><div class="tree-line"></div><div class="tree-dot"></div><div class="tree-line"></div></div>
+          <div class="plaque self-plaque">
+            <div class="plaque-name">Abhinav Jain</div>
+            <div class="plaque-role">Son</div>
+          </div>
+        </div>
+
+        <!-- Maternal -->
+        <div class="maternal-heading">Maternal Family (Nana–Mama Side)</div>
+        <ul class="maternal-list">
+          <li>
+            <strong>Sri Paras Mal Ji Munot</strong>
+          </li>
+          <li>
+            <strong>Sri Dhermendra Kumar Ji Munot</strong>
+            <span>Chennai</span>
+          </li>
+          <li>
+            <strong>Sri Jitendra Kumar Munot</strong>
+            <span>Dainik Bhaskar · Sr. Super Advisor, United India Insurance</span>
+          </li>
+        </ul>
+
+        <!-- Gotra -->
+        <div class="gotra-heading">Gotra</div>
+        <div class="chip-row">
+          <div class="chip"><span class="chip-gotra">Duggar</span><span class="chip-rel">Self</span></div>
+          <div class="chip"><span class="chip-gotra">Munot</span><span class="chip-rel">Maternal</span></div>
+          <div class="chip"><span class="chip-gotra">Bothra</span><span class="chip-rel">Father's Maternal</span></div>
+          <div class="chip"><span class="chip-gotra">Ved Mehta</span><span class="chip-rel">Mother's Maternal</span></div>
+        </div>
+      </div>
+
+      <!-- INTERESTS -->
+      <div class="section reveal">
+        <div class="section-head">
+          <div class="section-icon">🎵</div>
+          <h2 class="section-title">Outside of Work</h2>
+          <div class="section-rule"></div>
+        </div>
+        <div class="hobby-grid">
+          <div class="hobby-card"><span class="hobby-icon">📚</span><span class="hobby-label">Reading</span></div>
+          <div class="hobby-card"><span class="hobby-icon">✈️</span><span class="hobby-label">Travelling</span></div>
+          <div class="hobby-card"><span class="hobby-icon">💪</span><span class="hobby-label">Fitness</span></div>
+          <div class="hobby-card"><span class="hobby-icon">🎶</span><span class="hobby-label">Songwriting</span></div>
+        </div>
+      </div>
+
+      <!-- GALLERY -->
+      <div class="section reveal">
+        <div class="section-head">
+          <div class="section-icon">📷</div>
+          <h2 class="section-title">A Few Photographs</h2>
+          <div class="section-rule"></div>
+        </div>
+        <div class="gallery-grid">
+          <div class="gallery-frame" onclick="openGallery(0)">
+            <div class="tape"></div>
+            <div class="gallery-ph" id="gph-0"><span class="ph-icon">📷</span><img id="gimg-0" src="" alt=""><span>tap to add</span></div>
+            <div class="gallery-caption" id="gcap-0">Photo 1</div>
+          </div>
+          <div class="gallery-frame" onclick="openGallery(1)">
+            <div class="tape"></div>
+            <div class="gallery-ph" id="gph-1"><span class="ph-icon">📷</span><img id="gimg-1" src="" alt=""><span>tap to add</span></div>
+            <div class="gallery-caption" id="gcap-1">Photo 2</div>
+          </div>
+          <div class="gallery-frame" onclick="openGallery(2)">
+            <div class="tape"></div>
+            <div class="gallery-ph" id="gph-2"><span class="ph-icon">📷</span><img id="gimg-2" src="" alt=""><span>tap to add</span></div>
+            <div class="gallery-caption" id="gcap-2">Photo 3</div>
+          </div>
+          <div class="gallery-frame" onclick="openGallery(3)">
+            <div class="tape"></div>
+            <div class="gallery-ph" id="gph-3"><span class="ph-icon">📷</span><img id="gimg-3" src="" alt=""><span>tap to add</span></div>
+            <div class="gallery-caption" id="gcap-3">Photo 4</div>
+          </div>
+        </div>
+        <p class="gallery-note">Tap any frame to upload or preview a photo</p>
+      </div>
+
+      <!-- CONTACT -->
+      <div class="section reveal">
+        <div class="section-head">
+          <div class="section-icon">📍</div>
+          <h2 class="section-title">Residence &amp; Contact</h2>
+          <div class="section-rule"></div>
+        </div>
+        <div class="contact-grid">
+          <div class="contact-card">
+            <div class="c-icon">🏡</div>
+            <div class="c-label">Residence</div>
+            <div class="c-value">H-163/1, Azad Nagar, Bhilwara, Rajasthan</div>
+          </div>
+          <a class="contact-card" href="tel:+919672672921">
+            <div class="c-icon">📞</div>
+            <div class="c-label">Paras Kumar Jain (Father)</div>
+            <div class="c-value">+91 96726-72921</div>
+          </a>
+          <a class="contact-card" href="tel:+919649477031">
+            <div class="c-icon">📞</div>
+            <div class="c-label">Madhu Jain (Mother)</div>
+            <div class="c-value">+91 96494-77031</div>
+          </a>
+        </div>
+
+        <div class="social-row">
+          <a class="social-btn" href="https://instagram.com/YOUR_INSTAGRAM_HANDLE" target="_blank" rel="noopener">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+              <rect x="2" y="2" width="20" height="20" rx="5"/>
+              <circle cx="12" cy="12" r="4"/>
+              <circle cx="17.5" cy="6.5" r=".8" fill="currentColor" stroke="none"/>
+            </svg>
+            Instagram
+          </a>
+          <a class="social-btn" href="https://linkedin.com/in/YOUR_LINKEDIN_HANDLE" target="_blank" rel="noopener">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+              <rect x="2" y="2" width="20" height="20" rx="4"/>
+              <line x1="8" y1="11" x2="8" y2="16"/>
+              <line x1="8" y1="8" x2="8" y2="8.5"/>
+              <path d="M12 16v-5M12 11a3 3 0 0 1 6 0v5"/>
+            </svg>
+            LinkedIn
+          </a>
+        </div>
+      </div>
+
+    </div><!-- /content -->
+
+    <!-- FOOTER -->
+    <div class="footer">
+      <div class="footer-sig">With warm regards, Abhinav</div>
+      <div class="footer-bottom">॥ जय श्री जिनेन्द्र ॥</div>
+    </div>
+
+  </div>
 </div>
 
-<main>
-  <p class="invocation">श्री नाकोड़ा पार्श्व-भैरवाय नमः</p>
-
-  <p class="kicker">Getting to know</p>
-  <h1 class="masthead">Abhinav Jain</h1>
-  <p class="subhead">Business Analyst by profession, songwriter at heart — raised in Rajasthan, settled in Bengaluru.</p>
-
-  <div class="polaroid hero-polaroid">
-    <div class="tape"></div>
-    <div class="ph">AJ</div>
-    <div class="cap">Abhinav</div>
+<!-- LIGHTBOX -->
+<div class="lightbox" id="lightbox" onclick="closeLightbox(event)">
+  <button class="lightbox-close" onclick="closeLightbox(event)">✕</button>
+  <div class="lightbox-frame" onclick="event.stopPropagation()">
+    <div id="lb-ph" class="ph-big">No photo yet</div>
+    <img id="lb-img" src="" alt="" style="display:none;width:100%;aspect-ratio:1;object-fit:cover;">
+    <input type="file" id="lb-input" accept="image/*" style="display:none" onchange="loadGalleryPhoto(event)">
+    <div class="lightbox-cap" id="lb-cap">tap below to add</div>
+    <div style="text-align:center;margin-top:10px;">
+      <button onclick="document.getElementById('lb-input').click()" style="background:var(--saffron);color:#fff;border:none;border-radius:20px;padding:8px 20px;cursor:pointer;font-size:.85rem;">+ Add Photo</button>
+    </div>
   </div>
-
-  <section class="reveal">
-    <div class="clearfix">
-      <div class="factbox">
-        <div class="f"><div class="l">Born</div><div class="v">29 Nov 2002</div></div>
-        <div class="f"><div class="l">Height</div><div class="v">5'10"</div></div>
-        <div class="f"><div class="l">Complexion</div><div class="v">Fair</div></div>
-        <div class="f"><div class="l">Qualification</div><div class="v">B.Tech.</div></div>
-      </div>
-      <p class="lead">Abhinav grew up in Bhilwara, Rajasthan, born at 3:20 AM in Gulabpura, Bijaynagar. He went on to complete his B.Tech and now works as a Business Analyst at Bewakoof Brands Pvt. Ltd. in Bengaluru! a long way from home, though Rajasthan stays close to heart.</p>
-      <p>Those who know him well will tell you he's just as comfortable with a spreadsheet as he is with a melody, a balance he's quietly proud of.</p>
-    </div>
-  </section>
-
-  <section class="reveal">
-    <h2 class="section-title">Family</h2>
-    <div class="tree">
-      <div class="tree-row">
-        <div class="plaque"><div class="v">Late Sri Manohar Singh Ji Duggar</div><div class="sub">Grandfather</div></div>
-        <div class="plaque"><div class="v">Late Smt. Shanta Devi Duggar</div><div class="sub">Grandmother</div></div>
-      </div>
-      <div class="tree-line"></div>
-      <div class="tree-row">
-        <div class="plaque"><div class="v">Sri Paras Kumar Jain</div><div class="sub">Father · Self-Employed</div></div>
-        <div class="plaque"><div class="v">Smt. Madhu Jain</div><div class="sub">Mother · Govt. Teacher</div></div>
-      </div>
-      <div class="tree-line"></div>
-      <div class="plaque self"><div class="v">Abhinav Jain</div></div>
-    </div>
-
-    <div style="margin-top:28px;">
-      <p class="maternal-note">Maternal family (Nana–Mama side)</p>
-      <ul class="maternal-list">
-        <li><strong>Sri Paras Mal Ji Munot</strong></li>
-        <li><strong>Sri Dhermendra Kumar Ji Munot</strong> — Munot Plastics, Chennai</li>
-        <li><strong>Sri Jitendra Kumar Munot</strong> — Dainik Bhaskar, Bijaynagar, Ajmer</li>
-      </ul>
-    </div>
-
-    <div class="gotra-section">
-      <p class="gotra-label" style="text-align:center;">Gotra</p>
-      <div class="chip-row">
-        <div class="chip"><b>Duggar</b> <span>Self</span></div>
-        <div class="chip"><b>Munot</b> <span>Maternal</span></div>
-        <div class="chip"><b>Bothra</b> <span>Father's Maternal</span></div>
-        <div class="chip"><b>Ved Mehta</b> <span>Mother's Maternal</span></div>
-      </div>
-    </div>
-  </section>
-
-  <section class="reveal">
-    <h2 class="section-title">Outside of Work</h2>
-    <p class="note">He reads widely, travels whenever the chance comes up, keeps fit, and — quietly — writes <span class="music">songs</span> no one's heard yet.</p>
-  </section>
-
-  <section class="reveal">
-    <h2 class="section-title">A Few Photographs</h2>
-    <div class="gallery-strip">
-      <div class="polaroid" onclick="openLightbox()"><div class="ph">1</div><div class="cap">soon</div></div>
-      <div class="polaroid" onclick="openLightbox()"><div class="ph">2</div><div class="cap">soon</div></div>
-      <div class="polaroid" onclick="openLightbox()"><div class="ph">3</div><div class="cap">soon</div></div>
-      <div class="polaroid" onclick="openLightbox()"><div class="ph">4</div><div class="cap">soon</div></div>
-    </div>
-    <p class="gallery-note">Photos to be added — tap a frame to preview</p>
-  </section>
-
-  <section class="reveal">
-    <h2 class="section-title">Residence &amp; Contact</h2>
-    <div class="contact-grid">
-      <div class="c-card"><div class="l">Residence</div><div class="v">H-163/1, Azad Nagar, Bhilwara, Rajasthan</div></div>
-      <a href="tel:+919672672921"><div class="c-card"><div class="l">Paras Kumar Jain (Father)</div><div class="v">+91 96726-72921</div></div></a>
-      <a href="tel:+919649477031"><div class="c-card"><div class="l">Madhu Jain (Mother)</div><div class="v">+91 96494-77031</div></div></a>
-    </div>
-
-    <div class="social-row">
-      <a class="social-btn" href="https://instagram.com/YOUR_INSTAGRAM_HANDLE" target="_blank" rel="noopener">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
-          <rect x="2" y="2" width="20" height="20" rx="5" ry="5"/>
-          <circle cx="12" cy="12" r="4"/>
-          <circle cx="17.5" cy="6.5" r=".8" fill="currentColor" stroke="none"/>
-        </svg>
-        Instagram
-      </a>
-      <a class="social-btn" href="https://linkedin.com/in/YOUR_LINKEDIN_HANDLE" target="_blank" rel="noopener">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
-          <rect x="2" y="2" width="20" height="20" rx="4"/>
-          <line x1="8" y1="11" x2="8" y2="16"/>
-          <line x1="8" y1="8" x2="8" y2="8.5"/>
-          <path d="M12 16v-5M12 11a3 3 0 0 1 6 0v5"/>
-        </svg>
-        LinkedIn
-      </a>
-    </div>
-  </section>
-
-  <footer>
-    <div class="sig">With warm regards, Abhinav</div>
-  </footer>
-</main>
-
-<div class="lightbox" id="lightbox" onclick="closeLightbox()">
-  <span class="close">&times;</span>
-  <div class="polaroid"><div class="ph">AJ</div><div class="cap">Abhinav</div></div>
 </div>
 
 <script>
-function adjustFont(d){
-  const cur=parseFloat(getComputedStyle(document.body).fontSize);
-  const next=Math.max(16,Math.min(22,cur+d*1.4));
-  document.body.style.fontSize=next+'px';
+let currentGallery = 0;
+const galleryData = [{src:'',cap:'Photo 1'},{src:'',cap:'Photo 2'},{src:'',cap:'Photo 3'},{src:'',cap:'Photo 4'}];
+
+function loadHeroPhoto(e) {
+  const file = e.target.files[0];
+  if (!file) return;
+  const reader = new FileReader();
+  reader.onload = ev => {
+    const img = document.getElementById('hero-img');
+    img.src = ev.target.result;
+    img.style.display = 'block';
+    document.querySelector('.photo-ring .initials').style.display = 'none';
+  };
+  reader.readAsDataURL(file);
 }
-function openLightbox(){document.getElementById('lightbox').classList.add('open');}
-function closeLightbox(){document.getElementById('lightbox').classList.remove('open');}
-const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting)e.target.classList.add('visible');}),{threshold:.12});
-document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
+
+function openGallery(idx) {
+  currentGallery = idx;
+  const lb = document.getElementById('lightbox');
+  const lbImg = document.getElementById('lb-img');
+  const lbPh = document.getElementById('lb-ph');
+  const lbCap = document.getElementById('lb-cap');
+  if (galleryData[idx].src) {
+    lbImg.src = galleryData[idx].src;
+    lbImg.style.display = 'block';
+    lbPh.style.display = 'none';
+  } else {
+    lbImg.style.display = 'none';
+    lbPh.style.display = 'flex';
+    lbPh.textContent = 'No photo yet';
+  }
+  lbCap.textContent = galleryData[idx].cap;
+  lb.classList.add('open');
+}
+
+function closeLightbox(e) {
+  if (e.target === document.getElementById('lightbox') || e.target.classList.contains('lightbox-close')) {
+    document.getElementById('lightbox').classList.remove('open');
+  }
+}
+
+function loadGalleryPhoto(e) {
+  const file = e.target.files[0];
+  if (!file) return;
+  const reader = new FileReader();
+  reader.onload = ev => {
+    galleryData[currentGallery].src = ev.target.result;
+    const gimg = document.getElementById('gimg-' + currentGallery);
+    const gph = document.getElementById('gph-' + currentGallery);
+    gimg.src = ev.target.result;
+    gimg.style.display = 'block';
+    gph.querySelector('.ph-icon') && (gph.querySelector('.ph-icon').style.display = 'none');
+    gph.querySelector('span:last-child') && (gph.querySelector('span:last-child').style.display = 'none');
+    const lbImg = document.getElementById('lb-img');
+    lbImg.src = ev.target.result;
+    lbImg.style.display = 'block';
+    document.getElementById('lb-ph').style.display = 'none';
+  };
+  reader.readAsDataURL(file);
+}
+
+function sharePage() {
+  const url = window.location.href;
+  if (navigator.clipboard) {
+    navigator.clipboard.writeText(url).then(() => showToast('Link copied to clipboard!'));
+  } else {
+    showToast('Copy the URL from your address bar!');
+  }
+}
+
+function showToast(msg) {
+  const t = document.getElementById('toast');
+  t.textContent = msg;
+  t.classList.add('show');
+  setTimeout(() => t.classList.remove('show'), 2800);
+}
+
+const io = new IntersectionObserver(es => es.forEach(e => {
+  if (e.isIntersecting) e.target.classList.add('visible');
+}), { threshold: .12 });
+document.querySelectorAll('.reveal').forEach(el => io.observe(el));
 </script>
 </body>
 </html>
